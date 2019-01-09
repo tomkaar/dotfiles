@@ -1,0 +1,226 @@
+#!/usr/bin/env bash
+
+# ~/.osx — http://mths.be/osx
+
+IOS_PARENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )
+source $IOS_PARENT_DIR/utils/utils.sh
+
+info "OSX system setup" A
+warn "You should read the comments inside the \".osx\" file\nThis will change a lot of things" B
+
+info "Looking for commands to perform the following actions:" 
+
+echo " - Display bluetooth icon in menu bar"
+echo " - Display battery percentage in menu bar"
+echo " - Remove TimeMachine from menu bar"
+echo " - Remove Siri from menu bar"
+
+echo " - Disable Caps lock modifier key"
+echo " - Disable ask Siri"
+
+echo " - Enable draging: \"three fingers drag\" on trackpad in accessibility"
+echo " - Swipe between full-screen apps: Swipe left or right with four fingers"
+
+echo " - Auto load custom preferences in iterm2"
+
+echo "" 
+
+ask "Continue?" Y || {
+	abort_message Y
+    exit
+}
+
+
+
+###############################################################################
+# General UI/UX                                                               #
+###############################################################################
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# Disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+
+
+###############################################################################
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
+###############################################################################
+
+# Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+
+
+###############################################################################
+# Screen                                                                      #
+###############################################################################
+
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Finder: show hidden files by default
+# defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Automatically open a new Finder window when a volume is mounted
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Show icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+	General -bool true \
+	OpenWith -bool true \
+	Privileges -bool true
+
+
+###############################################################################
+# Dock, Dashboard, and hot corners                                            #
+###############################################################################
+
+# Set the icon size of Dock items to 46 pixels
+defaults write com.apple.dock tilesize -int 46
+
+# Show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Move Dock to the left side on screen
+defaults write com.apple.Dock orientation -string left
+
+# Hot corners
+# Possible values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+
+# Top left screen corner → Mission Control
+defaults write com.apple.dock wvous-tl-corner -int 11
+defaults write com.apple.dock wvous-tl-modifier -int 0
+# Top right screen corner → Desktop
+defaults write com.apple.dock wvous-tr-corner -int 4
+defaults write com.apple.dock wvous-tr-modifier -int 0
+
+
+
+###############################################################################
+# Safari & WebKit                                                             #
+###############################################################################
+
+# Set Safari’s home page to `about:blank` for faster loading
+defaults write com.apple.Safari HomePage -string "about:blank"
+
+# Prevent Safari from opening ‘safe’ files automatically after downloading
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
+# Hide Safari’s bookmarks bar by default
+defaults write com.apple.Safari ShowFavoritesBar -bool false
+
+# Hide Safari’s sidebar in Top Sites
+defaults write com.apple.Safari ShowSidebarInTopSites -bool false
+
+# Enable Safari’s debug menu
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+# Remove useless icons from Safari’s bookmarks bar
+defaults write com.apple.Safari ProxiesInBookmarksBar "()"
+
+# Enable the Develop menu and the Web Inspector in Safari
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+
+
+###############################################################################
+# Mail                                                                        #
+###############################################################################
+
+# Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
+
+# Disable inline attachments (just show the icons)
+defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
+
+
+
+###############################################################################
+# Terminal & iTerm 2                                                          #
+###############################################################################
+
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+
+
+###############################################################################
+# Other                                                                       #
+###############################################################################
+
+# Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+
+# Disable smart quotes as it’s annoying for messages that contain code
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+
+
+
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+
+complete_message Y
+text_space_below "Note that some of these changes require a logout/restart to take effect."
+
+for app in "cfprefsd" "Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" "Terminal"; do
+	killall "${app}" > /dev/null 2>&1
+done

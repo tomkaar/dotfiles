@@ -1,0 +1,12 @@
+[user]
+	name = Tommy Kärnström
+	email = tommy.karnstrom@hotmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+[credential]
+	helper = osxkeychain
