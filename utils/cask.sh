@@ -42,7 +42,7 @@ cask_installed_formulas_list(){
     for element in "${array[@]}"
     do
         if [[ "$BREW_INSTALLED_FORMULAS" == *"${element}"* ]]; then
-             success "[x] ${element}"
+             success " [x] ${element}"
         fi
     done
 }
@@ -53,7 +53,7 @@ cask_missing_source_file_formulas_list() {
     for element in "${array[@]}"
     do
         if ! [[ "$BREW_CASKS" == *"${element}"* ]]; then
-            warn "[x] ${element}"
+            warn " [x] ${element}"
         fi
     done
 }
@@ -65,7 +65,7 @@ cask_not_installed_casks_list() {
     for element in "${array[@]}"
     do
         if ! [[ "$BREW_INSTALLED_FORMULAS" == *"${element}"* ]]; then
-            err "[ ] ${element}"
+            err " [ ] ${element}"
         fi
     done
 }

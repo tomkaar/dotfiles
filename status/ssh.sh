@@ -4,7 +4,7 @@ set -e
 DIR="$1"
 source $DIR/utils/utils.sh
 
-info "🛠  SSH status" A
+info "⚙️  ${TEXT_BOLD}SSH status${TEXT_NORMAL}" Y
 echo -e "This will check if all files can be located\nand if the symlinks are connected"
 
 SSH_SRC="${DIR}/dotfiles/ssh/config"

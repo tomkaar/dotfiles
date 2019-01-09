@@ -141,7 +141,7 @@ createLink() {
 find_file_location() {
     if [ -a "$1" ]; then { success "[x] ${2} found" A; local STATUS=0; };
     else { err "[ ] ${2} not found" A; local STATUS=1; } fi
-    echo -e "${TEXT_DIM}${1}${TEXT_NORMAL}"
+    echo -e "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
     return $STATUS
 }
 

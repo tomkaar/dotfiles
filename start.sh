@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 set -e
 
+clear
+
 CURRENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 source $CURRENT_DIR/utils/utils.sh
 
-info "🤔 What do you want to do?" Y
+info "${TEXT_BOLD}🤔 What do you want to do?${TEXT_NORMAL}" Y
 
-CHOICES_1="Setup"
-CHOICES_2="Status check"
-CHOICES_QUIT="${TPUT_RED}Quit${TPUT_NORMAL}"
+CHOICES_1="${TPUT_BOLD}Setup ${TPUT_NORMAL} Install and set up enviornment, programs and more"
+CHOICES_2="${TPUT_BOLD}Status ${TPUT_NORMAL} Check installations and connections"
+CHOICES_QUIT="${TPUT_BOLD}${TPUT_RED}Quit${TPUT_NORMAL}"
 
-PS3='Please enter your choice: '
+PS3=$'\n'"Please enter your choice: "
 options=("$CHOICES_1" "$CHOICES_2" "$CHOICES_QUIT")
+COLUMNS=1
 select opt in "${options[@]}"
 do
     case $opt in

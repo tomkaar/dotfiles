@@ -4,7 +4,7 @@ set -e
 DIR="$1"
 source $DIR/utils/utils.sh
 
-info "🛠  OSX status" A
+info "⚙️  ${TEXT_BOLD}OSX status${TEXT_NORMAL}" Y
 echo -e "This will check if the source file can be located"
 
 SSH_SRC="${DIR}/dotfiles/.osx"
