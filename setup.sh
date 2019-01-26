@@ -17,10 +17,11 @@ CHOICE_iterm2="${TPUT_BOLD}iTerm2 ${TPUT_NORMAL} Load preferences"
 CHOICE_vscode="${TPUT_BOLD}Visual Studio Code ${TPUT_NORMAL} installation and extensions"
 CHOICE_osx="${TPUT_BOLD}OSX ${TPUT_NORMAL} computer settings OSX"
 
+CHOICE_backtooptions="Back to options"
 CHOICE_all="${TPUT_BOLD}${TPUT_YELLOW}Everything ${TPUT_NORMAL} "
 CHOICE_quit="${TPUT_BOLD}${TPUT_RED}Quit ${TPUT_NORMAL} "
 
-options=( "$CHOICE_bash" "$CHOICE_brew" "$CHOICE_cask" "$CHOICE_ssh" "$CHOICE_git" "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "$CHOICE_all" "$CHOICE_quit")
+options=( "$CHOICE_bash" "$CHOICE_brew" "$CHOICE_cask" "$CHOICE_ssh" "$CHOICE_git" "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "${CHOICE_backtooptions}" "$CHOICE_all" "$CHOICE_quit")
 COLUMNS=1
 
 PS3=$'\n'"Please enter your choice: "
@@ -51,6 +52,9 @@ do
         "$CHOICE_osx")
             clear; "${DIR}/dotfiles/.osx" $DIR; break;
 	    ;;
+        "${CHOICE_backtooptions}")
+            clear; "${DIR}/start.sh"; break;
+        ;;
         "$CHOICE_all")
             clear;
             "${DIR}/setup/bash.sh" $DIR;
