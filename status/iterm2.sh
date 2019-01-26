@@ -11,9 +11,9 @@ info "⚙️  ${TEXT_BOLD}iTerm2 status${TEXT_NORMAL}" Y
 echo -e "This will check if the file can be located\nand check if the paths match."
 
 if [ "${SET_PATH}" == "${DESIRED_PATH}" ]; then
-    success " ✓  It's a match" A
+    success " ✓  The paths seems to match!" A
 else
-    err "    It's not a match" A
+    err "    The paths does not seem to match" A
 fi
 
 echo -e "Set path: ${TEXT_DIM}${SET_PATH}${TEXT_NORMAL}"
