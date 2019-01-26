@@ -25,3 +25,5 @@ if command_exists brew; then
 else
     err " [ ] Brew is not installed" Y
 fi
+
+backToStatusScreenOption

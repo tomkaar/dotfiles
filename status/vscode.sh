@@ -25,3 +25,5 @@ if command_exists code; then
 else
     err " [ ] Visual Studio Code is not installed" Y
 fi
+
+backToStatusScreenOption

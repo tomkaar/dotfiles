@@ -23,3 +23,5 @@ symlink_location_matches "$RC_DEST" "$RC_SRC"
 symlink_location_matches "$PROFILE_DEST" "$PROFILE_SRC" 
 
 complete_message Y
+
+backToStatusScreenOption

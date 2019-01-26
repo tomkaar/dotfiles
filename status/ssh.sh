@@ -15,3 +15,5 @@ find_file_location_only_visual "$SSH_DEST" ".ssh/config destionation"
 symlink_location_matches "$SSH_DEST" "$SSH_SRC" 
 
 complete_message Y
+
+backToStatusScreenOption

@@ -22,3 +22,5 @@ symlink_location_matches "$IGNOREGLOBAL_DEST" "$IGNOREGLOBAL_SRC"
 symlink_location_matches "$CONFIG_DEST" "$CONFIG_SRC" 
 
 complete_message Y
+
+backToStatusScreenOption

@@ -22,3 +22,5 @@ echo -e "Desired path: ${TEXT_DIM}${DESIRED_PATH}${TEXT_NORMAL}"
 # echo $SET_PATH
 
 complete_message Y
+
+backToStatusScreenOption

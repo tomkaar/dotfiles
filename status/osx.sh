@@ -13,3 +13,5 @@ SSH_DEST="${HOME}/.ssh/config"
 find_file_location_only_visual "$SSH_SRC" ".osx source"
 
 complete_message Y
+
+backToStatusScreenOption

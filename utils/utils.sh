@@ -65,6 +65,18 @@ complete_message() { info "👊 Complete." $1; }
 
 
 
+# Common Options
+backToStatusScreenOption() {
+    if ask "Do you want to go back to the Status Menu?" Y; then
+        "${DIR}/status.sh"
+    else
+        abort_message Y
+        exit
+    fi
+}
+
+
+
 # Ask Prompt
 # https://gist.github.com/davejamesmiller/1965569
 ask() {
