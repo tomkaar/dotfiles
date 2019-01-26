@@ -10,4 +10,7 @@ info "🛠  Brew setup" A
 install_brew_prompt
 brew_install_formulas
 
+# create nvm directory
+mkdir ~/.nvm
+
 complete_message B
