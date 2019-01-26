@@ -144,6 +144,11 @@ find_file_location() {
     echo -e "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
     return $STATUS
 }
+find_file_location_only_visual() {
+    if [ -a "$1" ]; then { success " ✓ ${2} found" A; };
+    else { err "   ${2} not found" A; } fi
+    echo -e "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
+}
 
 # $1=FILE_TO_CHECK $2=SOURCE
 symlink_location_matches() {

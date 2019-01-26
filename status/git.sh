@@ -12,11 +12,11 @@ IGNOREGLOBAL_DEST="${HOME}/.gitignore_global"
 CONFIG_SRC="${DIR}/dotfiles/git/.gitconfig"
 CONFIG_DEST="${HOME}/.gitconfig"
 
-find_file_location "$IGNOREGLOBAL_SRC" ".gitignore_global source"
-find_file_location "$IGNOREGLOBAL_DEST" ".gitignore_global destionation"
+find_file_location_only_visual "$IGNOREGLOBAL_SRC" ".gitignore_global source"
+find_file_location_only_visual "$IGNOREGLOBAL_DEST" ".gitignore_global destionation"
 
-find_file_location "$CONFIG_SRC" ".gitconfig source"
-find_file_location "$CONFIG_DEST" ".gitconfig destionation"
+find_file_location_only_visual "$CONFIG_SRC" ".gitconfig source"
+find_file_location_only_visual "$CONFIG_DEST" ".gitconfig destionation"
 
 symlink_location_matches "$IGNOREGLOBAL_DEST" "$IGNOREGLOBAL_SRC" 
 symlink_location_matches "$CONFIG_DEST" "$CONFIG_SRC" 

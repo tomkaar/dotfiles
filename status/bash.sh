@@ -13,11 +13,11 @@ RC_DEST="${HOME}/.bashrc"
 PROFILE_SRC="${DIR}/dotfiles/bash/.bash_profile"
 PROFILE_DEST="${HOME}/.bash_profile"
 
-find_file_location "$RC_SRC" ".bashrc source"
-find_file_location "$RC_DEST" ".bashrc destionation"
+find_file_location_only_visual "$RC_SRC" ".bashrc source"
+find_file_location_only_visual "$RC_DEST" ".bashrc destionation"
 
-find_file_location "$PROFILE_SRC" ".bash_profile source"
-find_file_location "$PROFILE_DEST" ".bash_profile destionation"
+find_file_location_only_visual "$PROFILE_SRC" ".bash_profile source"
+find_file_location_only_visual "$PROFILE_DEST" ".bash_profile destionation"
 
 symlink_location_matches "$RC_DEST" "$RC_SRC" 
 symlink_location_matches "$PROFILE_DEST" "$PROFILE_SRC" 
