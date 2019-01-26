@@ -151,8 +151,8 @@ createLink() {
 # check if a file can be found, can be used in conditional
 # $1=PATH_TO_FILE  $2=NAME_OF_FILE
 find_file_location() {
-    if [ -a "$1" ]; then { success "[x] ${2} found" A; local STATUS=0; };
-    else { err "[ ] ${2} not found" A; local STATUS=1; } fi
+    if [ -a "$1" ]; then { success " ✓  ${2} found" A; local STATUS=0; };
+    else { err "    ${2} not found" A; local STATUS=1; } fi
     echo -e "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
     return $STATUS
 }
@@ -166,9 +166,9 @@ find_file_location_only_visual() {
 symlink_location_matches() {
     local SYMLINK_DEST=$(readlink $1)
     if [ "$SYMLINK_DEST" = "$2" ]; then
-        text_space_above "${COLOR_GREEN}[x] Symlink connected ${COLOR_NORMAL}"
+        text_space_above "${COLOR_GREEN} ✓  Symlink connected ${COLOR_NORMAL}"
     else
-        text_space_above "${COLOR_RED}[ ] Symlink not connected ${COLOR_NORMAL}"
+        text_space_above "${COLOR_RED}    Symlink not connected ${COLOR_NORMAL}"
     fi
     echo -e "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
     echo -e "Source: ${TEXT_DIM}${2}${TEXT_NORMAL}"
@@ -188,7 +188,7 @@ install_brew_prompt() {
             exit 1;
         fi
     else
-        success "[x] Brew is installed" A
+        success " ✓  Brew is installed" A
     fi
 }
 
@@ -202,6 +202,6 @@ install_vscode_prompt() {
             exit 1;
         fi
     else
-        success "[x] Visual Studio Code is installed" A
+        success " ✓  Visual Studio Code is installed" A
     fi
 }

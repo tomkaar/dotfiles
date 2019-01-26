@@ -13,11 +13,11 @@ cask_install_casks() {
     IFS=' ' read -a array <<< $BREW_CASKS;
     for cask in "${array[@]}"; do
         if brew cask list $cask > /dev/null; then
-            success "[x] ${cask} is installed"
+            success " ✓  ${cask} is installed"
         else
             echo ''
             # The package is not installed
-            info "[ ] ${cask} is not installed"
+            info "    ${cask} is not installed"
             if ask "Do you want to install ${cask} now?" Y; then
                 info "Installing ${cask}"
                 brew cask install ${cask}
@@ -42,7 +42,7 @@ cask_installed_formulas_list(){
     for element in "${array[@]}"
     do
         if [[ "$BREW_INSTALLED_FORMULAS" == *"${element}"* ]]; then
-             success " [x] ${element}"
+             success "  ✓  ${element}"
         fi
     done
 }
@@ -53,7 +53,7 @@ cask_missing_source_file_formulas_list() {
     for element in "${array[@]}"
     do
         if ! [[ "$BREW_CASKS" == *"${element}"* ]]; then
-            warn " [x] ${element}"
+            warn "  ✓  ${element}"
         fi
     done
 }
@@ -65,7 +65,7 @@ cask_not_installed_casks_list() {
     for element in "${array[@]}"
     do
         if ! [[ "$BREW_INSTALLED_FORMULAS" == *"${element}"* ]]; then
-            err " [ ] ${element}"
+            err "     ${element}"
         fi
     done
 }

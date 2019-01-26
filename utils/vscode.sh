@@ -22,14 +22,14 @@ vscode_install_extensions() {
     for extension in "${array[@]}"
     do   
         if ! [[ "$VISUAL_STUDIO_CODE_INSTALLED_EXTENSIONS" == *"${extension}"* ]]; then
-            warn "${COLOR_YELLOW}[ ] $(vscode_extension_get_name $extension)${COLOR_NORMAL} by $(vscode_extension_get_author $extension) is not installed" A
+            warn "${COLOR_YELLOW}    $(vscode_extension_get_name $extension)${COLOR_NORMAL} by $(vscode_extension_get_author $extension) is not installed" A
             if ask "Do you want to install ${COLOR_YELLOW}$(vscode_extension_get_name $extension)${COLOR_NORMAL} now?" Y; then
                 info "Installing ${extension}"
                 code --install-extension ${extension}
             fi  
             echo ''
         else
-            echo -e "${COLOR_GREEN}[x] $(vscode_extension_get_name $extension)${COLOR_NORMAL} by $(vscode_extension_get_author $extension) is installed"
+            echo -e "${COLOR_GREEN} ✓  $(vscode_extension_get_name $extension)${COLOR_NORMAL} by $(vscode_extension_get_author $extension) is installed"
         fi
     done
 }
@@ -41,11 +41,11 @@ vscode_install_extensions() {
 
 vscode_extension_check() {
     if [ "${3:-}" = 'Y' ]; then
-        success "[x] ${1} by ${2}"
+        success " ✓  ${1} by ${2}"
     elif [ "${3:-}" = 'D' ]; then
-        warn "[x] ${1} by ${2}"
+        warn " ✓  ${1} by ${2}"
     else
-        err "[ ] ${1} by ${2}"
+        err "    ${1} by ${2}"
     fi
 }
 

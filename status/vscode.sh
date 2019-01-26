@@ -9,7 +9,7 @@ info "⚙️  ${TEXT_BOLD}Visual Studio Code status${TEXT_NORMAL}" Y
 text_space_below "This will check if the 'code' command can be used\nand which extensions are installed"
 
 if command_exists code; then
-    success " [x] Visual Studio Code is installed"
+    success "  ✓  Visual Studio Code is installed"
 
     text_space 'Installed Extensions, matching source file'
     vscode_installed_extensions_list
@@ -23,7 +23,7 @@ if command_exists code; then
     complete_message Y
 
 else
-    err " [ ] Visual Studio Code is not installed" Y
+    err "     Visual Studio Code is not installed" Y
 fi
 
 backToStatusScreenOption

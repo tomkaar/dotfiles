@@ -9,7 +9,7 @@ info "⚙️  ${TEXT_BOLD}Brew status${TEXT_NORMAL}" Y
 text_space_below "This will check if the 'brew' command can be used\nand which formulas are installed"
 
 if command_exists brew; then
-    success " [x] Brew is installed"
+    success "  ✓  Brew is installed"
 
     text_space 'Installed Formulas, matching source file'
     brew_installed_formulas
@@ -23,7 +23,7 @@ if command_exists brew; then
     complete_message Y
 
 else
-    err " [ ] Brew is not installed" Y
+    err "     Brew is not installed" Y
 fi
 
 backToStatusScreenOption

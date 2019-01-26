@@ -9,7 +9,7 @@ info "⚙️  ${TEXT_BOLD}Cask status${TEXT_NORMAL}" Y
 text_space_below "This will check if the 'brew' command can be used\nand which formulas are installed"
 
 if command_exists brew; then
-    success " [x] Brew is installed"
+    success "  ✓  Brew is installed"
 
     text_space 'Installed Casks, matching source file'
     cask_installed_formulas_list
@@ -23,7 +23,7 @@ if command_exists brew; then
     complete_message Y
 
 else
-    err " [ ] Brew is not installed" Y
+    err "     Brew is not installed" Y
 fi
 
 backToStatusScreenOption

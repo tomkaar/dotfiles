@@ -42,7 +42,7 @@ brew_installed_formulas(){
     for element in "${array[@]}"
     do
         if [[ "$BREW_INSTALLED_FORMULAS" == *"${element}"* ]]; then
-            success " [x] ${element}"
+            success "  ✓  ${element}"
         fi
     done
 }
@@ -53,7 +53,7 @@ brew_missing_source_file_formulas() {
     for element in "${array[@]}"
     do
         if ! [[ "$BREW_FORMULAS" == *"${element}"* ]]; then
-            warn " [x] ${element}"
+            warn "  ✓  ${element}"
         fi
     done
 }
@@ -65,7 +65,7 @@ brew_not_installed_extensions() {
     for element in "${array[@]}"
     do
         if ! [[ "$BREW_INSTALLED_FORMULAS" == *"${element}"* ]]; then
-            err " [ ] ${element}"
+            err "     ${element}"
         fi
     done
 }
