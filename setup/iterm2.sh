@@ -18,3 +18,5 @@ killall "cfprefsd" > /dev/null 2>&1
 text_space_above "Note that these changes may take some time to take effect."
 
 complete_message Y
+
+backToSetupScreenOption

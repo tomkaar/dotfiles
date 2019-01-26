@@ -22,3 +22,5 @@ if find_file_location "$CONFIG_SRC" "..gitconfig"; then
 fi
 
 complete_message Y
+
+backToSetupScreenOption

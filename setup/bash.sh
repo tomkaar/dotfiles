@@ -23,3 +23,5 @@ if find_file_location "$PROFILE_SRC" ".bash_profile"; then
 fi
 
 complete_message Y
+
+backToSetupScreenOption

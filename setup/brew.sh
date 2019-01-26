@@ -14,3 +14,5 @@ brew_install_formulas
 mkdir ~/.nvm
 
 complete_message B
+
+backToSetupScreenOption

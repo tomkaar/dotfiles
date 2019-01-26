@@ -11,3 +11,5 @@ install_vscode_prompt
 vscode_install_extensions
 
 complete_message Y
+
+backToSetupScreenOption

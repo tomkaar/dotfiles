@@ -15,3 +15,5 @@ if find_file_location "$CONFIG_SRC" ".ssh/config"; then
 fi
 
 complete_message Y
+
+backToSetupScreenOption

@@ -11,3 +11,5 @@ install_brew_prompt
 cask_install_casks
 
 complete_message B
+
+backToSetupScreenOption
