@@ -172,7 +172,7 @@ find_file_location_only_visual() {
 
 # $1=FILE_TO_CHECK $2=SOURCE
 symlink_location_matches() {
-    local SYMLINK_DEST=$(readlink $1)
+    local SYMLINK_DEST=$(readlink "$1")
     if [ "$SYMLINK_DEST" = "$2" ]; then
         text_space_above "${COLOR_GREEN} ✓  Symlink connected ${COLOR_NORMAL}"
     else
