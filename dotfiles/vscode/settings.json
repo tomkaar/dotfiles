@@ -1,0 +1,9 @@
+{
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.tree.indent": 15,
+    "workbench.iconTheme": "vscode-simpler-icons"
+}
