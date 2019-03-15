@@ -76,7 +76,7 @@ backToStatusScreenOption() {
 }
 backToSetupScreenOption() {
     if ask "Do you want to go back to the Setup Menu?" Y; then
-        "${DIR}/status.sh"
+        "${DIR}/setup.sh"
     else
         abort_message Y
         exit
