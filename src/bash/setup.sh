@@ -2,8 +2,8 @@
 set -e
 
 DIR="$1"
-source $DIR/utils/utils.sh
-source $DIR/utils/bash.sh
+source $DIR/src/utils.sh
+source $DIR/src/bash/utils.sh
 
 info "🛠  Bash setup (.bashrc and .bash_profile)" A
 

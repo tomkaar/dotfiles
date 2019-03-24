@@ -4,7 +4,7 @@ set -e
 clear
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-source $DIR/utils/utils.sh
+source $DIR/src/utils.sh
 
 info "⚙️  ${TEXT_BOLD}Status checks${TEXT_NORMAL}" Y
 
@@ -28,28 +28,28 @@ select opt in "${options[@]}"
 do  
     case $opt in
         "$CHOICE_bash")
-            clear; "${DIR}/status/bash.sh" $DIR; break;
+            clear; "${DIR}/src/bash/status.sh" $DIR; break;
         ;;
         "$CHOICE_brew")
-            clear; "${DIR}/status/brew.sh" $DIR; break;
+            clear; "${DIR}/src/brew/status.sh" $DIR; break;
         ;;
         "$CHOICE_cask")
-            clear; "${DIR}/status/cask.sh" $DIR; break;
+            clear; "${DIR}/src/cask/status.sh" $DIR; break;
         ;;
         "$CHOICE_git")
-            clear; "${DIR}/status/git.sh" $DIR; break;
+            clear; "${DIR}/src/git/status.sh" $DIR; break;
         ;;
         "$CHOICE_ssh")
-            clear; "${DIR}/status/ssh.sh" $DIR; break;
+            clear; "${DIR}/src/ssh/status.sh" $DIR; break;
 	    ;;
         "$CHOICE_iterm2")
-            clear; "${DIR}/status/iterm2.sh" $DIR; break;
+            clear; "${DIR}/src/iterm2/status.sh" $DIR; break;
         ;;
         "$CHOICE_vscode")
-            clear; "${DIR}/status/vscode.sh" $DIR; break;
+            clear; "${DIR}/src/vscode/status.sh" $DIR; break;
         ;;
         "$CHOICE_osx")
-            clear; "${DIR}/status/osx.sh" $DIR; break;
+            clear; "${DIR}/src/osx/status.sh" $DIR; break;
         ;;
         "${CHOICE_backtooptions}")
             clear; "${DIR}/start.sh"; break;

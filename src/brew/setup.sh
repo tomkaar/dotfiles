@@ -2,8 +2,8 @@
 set -e
 
 DIR="$1"
-source $DIR/utils/utils.sh
-source $DIR/utils/brew.sh
+source $DIR/src/utils.sh
+source $DIR/src/brew/utils.sh
 
 info "🛠  Brew setup" A
 

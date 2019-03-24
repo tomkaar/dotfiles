@@ -4,7 +4,7 @@ set -e
 clear
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-source $DIR/utils/utils.sh
+source $DIR/src/utils.sh
 
 info "🛠  ${TEXT_BOLD}Setup!${TEXT_NORMAL}" Y
 
@@ -29,25 +29,25 @@ select opt in "${options[@]}"
 do  
     case $opt in
         "$CHOICE_bash")
-            clear; "${DIR}/setup/bash.sh" $DIR; break;
+            clear; "${DIR}/src/bash/setup.sh" $DIR; break;
         ;;
         "$CHOICE_brew")
-            clear; "${DIR}/setup/brew.sh" $DIR; break;
+            clear; "${DIR}/src/brew/setup.sh" $DIR; break;
         ;;
         "$CHOICE_cask")
-            clear; "${DIR}/setup/cask.sh" $DIR; break;
+            clear; "${DIR}/src/cask/setup.sh" $DIR; break;
         ;;
         "$CHOICE_git")
-            clear; "${DIR}/setup/git.sh" $DIR; break;
+            clear; "${DIR}/src/git/setup.sh" $DIR; break;
         ;;
         "$CHOICE_ssh")
-            clear; "${DIR}/setup/ssh.sh" $DIR; break;
+            clear; "${DIR}/src/ssh/setup.sh" $DIR; break;
 	    ;;
         "$CHOICE_iterm2")
-            clear; "${DIR}/setup/iterm2.sh" $DIR; break;
+            clear; "${DIR}/src/iterm2/setup.sh" $DIR; break;
 	    ;;
         "$CHOICE_vscode")
-            clear; "${DIR}/setup/vscode.sh" $DIR; break;
+            clear; "${DIR}/src/vscode/setup.sh" $DIR; break;
         ;;
         "$CHOICE_osx")
             clear; "${DIR}/dotfiles/.osx" $DIR; break;

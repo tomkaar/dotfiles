@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-VSCODE_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-VSCODE_PARENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )
-source $VSCODE_DIR/utils.sh
-source $VSCODE_PARENT_DIR/source.sh
+ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )
+source $ROOT_DIR/src/utils.sh
+source $ROOT_DIR/source.sh
 
 vscode_extension_get_name() {
     echo "$(cut -d'.' -f2 <<< ${1})"

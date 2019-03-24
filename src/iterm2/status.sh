@@ -2,7 +2,7 @@
 set -e
 
 DIR="$1"
-source $DIR/utils/utils.sh
+source $DIR/src/utils.sh
 
 SET_PATH=$(defaults read com.googlecode.iterm2.plist PrefsCustomFolder -string)
 DESIRED_PATH="${DIR}/dotfiles/iterm2"

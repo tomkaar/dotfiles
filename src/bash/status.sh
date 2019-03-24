@@ -2,8 +2,9 @@
 set -e
 
 DIR="$1"
-source $DIR/utils/utils.sh
-source $DIR/utils/bash.sh
+source $DIR/src/utils.sh
+source $DIR/src/bash/utils.sh
+
 
 info "️️⚙️  ${TEXT_BOLD}Bash status${TEXT_NORMAL}" Y
 echo -e "This will check if all files can be located\nand if the symlinks are connected"

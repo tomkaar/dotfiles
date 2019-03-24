@@ -2,8 +2,8 @@
 set -e
 
 DIR="$1"
-source $DIR/utils/utils.sh
-source $DIR/utils/cask.sh
+source $DIR/src/utils.sh
+source $DIR/src/cask/utils.sh
 
 info "⚙️  ${TEXT_BOLD}Cask status${TEXT_NORMAL}" Y
 text_space_below "This will check if the 'brew' command can be used\nand which formulas are installed"

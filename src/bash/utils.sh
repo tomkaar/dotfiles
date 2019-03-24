@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-BASH_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-BASH_PARENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )
-source $BASH_DIR/utils.sh
-source $BASH_PARENT_DIR/source.sh
+ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )
+source $ROOT_DIR/src/utils.sh
+source $ROOT_DIR/source.sh
 
 brew_install() {
 

@@ -3,7 +3,7 @@
 # ~/.osx — http://mths.be/osx
 
 IOS_PARENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )
-source $IOS_PARENT_DIR/utils/utils.sh
+source $IOS_PARENT_DIR/src/utils.sh
 
 info "OSX system setup" A
 warn "You should read the comments inside the \".osx\" file\nThis will change a lot of things" B
@@ -15,13 +15,13 @@ echo " - Display battery percentage in menu bar"
 echo " - Remove TimeMachine from menu bar"
 echo " - Remove Siri from menu bar"
 
+echo " - Replace Siri with Spotlight Search in touch bar"
+
 echo " - Disable Caps lock modifier key"
 echo " - Disable ask Siri"
 
 echo " - Enable draging: \"three fingers drag\" on trackpad in accessibility"
 echo " - Swipe between full-screen apps: Swipe left or right with four fingers"
-
-echo " - Auto load custom preferences in iterm2"
 
 echo "" 
 

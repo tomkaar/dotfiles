@@ -2,7 +2,7 @@
 set -e
 
 DIR="$1"
-source $DIR/utils/utils.sh
+source $DIR/src/utils.sh
 
 info "🛠  Git setup (.gitconfig and .gitignore_global)" A
 

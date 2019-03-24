@@ -2,7 +2,7 @@
 set -e
 
 DIR="$1"
-source $DIR/utils/utils.sh
+source $DIR/src/utils.sh
 
 info "⚙️  ${TEXT_BOLD}OSX status${TEXT_NORMAL}" Y
 echo -e "This will check if the source file can be located"

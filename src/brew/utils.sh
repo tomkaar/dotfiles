@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-BREW_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-BREW_PARENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )
-source $BREW_DIR/utils.sh
-source $BREW_PARENT_DIR/source.sh
+ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )
+source $ROOT_DIR/src/utils.sh
+source $ROOT_DIR/source.sh
 
 brew_install_formulas() {
 

@@ -4,7 +4,7 @@ set -e
 clear
 
 CURRENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-source $CURRENT_DIR/utils/utils.sh
+source $CURRENT_DIR/src/utils.sh
 
 info "${TEXT_BOLD}🤔 What do you want to do?${TEXT_NORMAL}" Y
 

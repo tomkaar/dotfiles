@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-CASK_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-CASK_PARENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )
-source $CASK_DIR/utils.sh
-source $CASK_PARENT_DIR/source.sh
+ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )
+source $ROOT_DIR/src/utils.sh
+source $ROOT_DIR/source.sh
 
 cask_install_casks() {
     

@@ -2,8 +2,8 @@
 set -e
 
 DIR="$1"
-source $DIR/utils/utils.sh
-source $DIR/utils/vscode.sh
+source $DIR/src/utils.sh
+source $DIR/src/vscode/utils.sh
 
 CONFIG_SRC="${DIR}/dotfiles/vscode/settings.json"
 CONFIG_DEST="${HOME}/Library/Application Support/Code/User/settings.json"
