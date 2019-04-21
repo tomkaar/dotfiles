@@ -46,3 +46,4 @@ PS2="> "
 
 #aliases
 alias typora='open -a typora'
+alias ll='ls -lia'
