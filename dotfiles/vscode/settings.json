@@ -1,9 +1,20 @@
 {
     "atomKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
-    "editor.formatOnPaste": true,
+    "editor.formatOnPaste": false,
     "workbench.startupEditor": "newUntitledFile",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "workbench.tree.indent": 15,
-    "workbench.iconTheme": "vscode-simpler-icons"
+    "workbench.iconTheme": "vscode-simpler-icons",
+    "editor.tabSize": 2,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "window.zoomLevel": 0,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#C71585"
+    }
 }
