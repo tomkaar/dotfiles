@@ -13,8 +13,11 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "workbench.colorCustomizations": {
-        "statusBar.background": "#C71585"
+        "statusBar.background": "#C71585",
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
     }
 }
