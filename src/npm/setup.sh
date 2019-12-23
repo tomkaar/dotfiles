@@ -4,7 +4,8 @@ source $DIR/src/npm/utils.sh
 
 info "🛠  Npm setup (global packages)" A
 
-git_install_global_packages
+install_nvm_prompt
+npm_install_global_packages
 
 complete_message Y
 
