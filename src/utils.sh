@@ -146,11 +146,21 @@ overwrite() {
     fi
 }
 
-# create a symlink
+# create a symlink, allow skipping
 createLink() {
-    overwrite ${2}
-    echo -e "Symlinking ${TEXT_BOLD}${2}${TEXT_NORMAL} to ${TEXT_BOLD}${1}${TEXT_NORMAL}..."
-    ln -sfn "${1}" "${2}"
+    if [ -a "$2" ]; then
+        # ask if it should be overwritten 
+        echo ''
+        if ! ask "${TEXT_BOLD}${1}${TEXT_NORMAL} already exists, overwrite?" N; then
+            echo "   Skipped symlinking"
+        else
+            echo "Symlinking ${TEXT_BOLD}${2}${TEXT_NORMAL} to ${TEXT_BOLD}${1}${TEXT_NORMAL}..."
+            ln -sfn "${1}" "${2}"
+        fi
+    else 
+        echo "Symlinking ${TEXT_BOLD}${2}${TEXT_NORMAL} to ${TEXT_BOLD}${1}${TEXT_NORMAL}..."
+        ln -sfn "${1}" "${2}"
+    fi
 }
 
 # check if a file can be found, can be used in conditional
