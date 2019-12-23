@@ -17,6 +17,8 @@ brew_install_formulas() {
             if ask "Do you want to install ${package} now?" Y; then
                 info "Installing ${package}"
                 brew install ${package}
+            else 
+                echo "Skipping installation: ${package}"
             fi
             echo ''
         fi

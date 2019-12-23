@@ -17,6 +17,8 @@ cask_install_casks() {
             if ask "Do you want to install ${cask} now?" Y; then
                 info "Installing ${cask}"
                 brew cask install ${cask}
+            else
+                echo "Skipping installation: ${cask}"
             fi
             echo ''
         fi
