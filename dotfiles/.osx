@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # ~/.osx — http://mths.be/osx
 
 IOS_PARENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )

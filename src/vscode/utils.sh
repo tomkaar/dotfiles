@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -e
+
+
 
 ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )
 source $ROOT_DIR/src/utils.sh
@@ -28,7 +28,7 @@ vscode_install_extensions() {
             fi  
             echo ''
         else
-            echo -e "${COLOR_GREEN} ✓  $(vscode_extension_get_name $extension)${COLOR_NORMAL} by $(vscode_extension_get_author $extension) is installed"
+            echo  "${COLOR_GREEN} ✓  $(vscode_extension_get_name $extension)${COLOR_NORMAL} by $(vscode_extension_get_author $extension) is installed"
         fi
     done
 }

@@ -1,9 +1,5 @@
-#!/usr/bin/env bash
-set -e
-
 DIR="$1"
 source $DIR/src/utils.sh
-source $DIR/src/bash/utils.sh
 
 info "🛠  ${TEXT_BOLD}iTerm2 setup${TEXT_NORMAL}" A
 
@@ -11,7 +7,7 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "${DIR}/dot
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 success " ✓  Link has been created" A 
-echo -e "Location: ${TEXT_DIM}${DIR}/dotfiles/iterm2${TEXT_NORMAL}"
+echo "Location: ${TEXT_DIM}${DIR}/dotfiles/iterm2${TEXT_NORMAL}"
 
 killall "cfprefsd" > /dev/null 2>&1
 

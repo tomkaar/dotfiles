@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-set -e
 
 clear
 
@@ -8,7 +6,7 @@ source $DIR/src/utils.sh
 
 info "🛠  ${TEXT_BOLD}Setup!${TEXT_NORMAL}" Y
 
-CHOICE_bash="${TPUT_BOLD}Bash ${TPUT_NORMAL} .bashrc and .bash_profile"
+CHOICE_CHOICE_zsh="${TPUT_BOLD}zsh ${TPUT_NORMAL} .zshrc"
 CHOICE_brew="${TPUT_BOLD}Brew ${TPUT_NORMAL} install formulas"
 CHOICE_cask="${TPUT_BOLD}Cask ${TPUT_NORMAL} install casks"
 CHOICE_ssh="${TPUT_BOLD}SSH ${TPUT_NORMAL} basic config file setup"
@@ -22,15 +20,15 @@ CHOICE_backtooptions="Back to options"
 CHOICE_all="${TPUT_BOLD}${TPUT_YELLOW}Everything ${TPUT_NORMAL} "
 CHOICE_quit="${TPUT_BOLD}${TPUT_RED}Quit ${TPUT_NORMAL} "
 
-options=( "$CHOICE_bash" "$CHOICE_brew" "$CHOICE_cask" "$CHOICE_ssh" "$CHOICE_git" "$CHOICE_npm" "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "${CHOICE_backtooptions}" "$CHOICE_all" "$CHOICE_quit")
+options=( "$CHOICE_CHOICE_zsh" "$CHOICE_brew" "$CHOICE_cask" "$CHOICE_ssh" "$CHOICE_git" "$CHOICE_npm" "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "${CHOICE_backtooptions}" "$CHOICE_quit")
 COLUMNS=1
 
 PS3=$'\n'"Please enter your choice: "
 select opt in "${options[@]}"
 do  
     case $opt in
-        "$CHOICE_bash")
-            clear; "${DIR}/src/bash/setup.sh" $DIR; break;
+        "$CHOICE_CHOICE_zsh")
+            clear; "${DIR}/src/zsh/setup.sh" $DIR; break;
         ;;
         "$CHOICE_brew")
             clear; "${DIR}/src/brew/setup.sh" $DIR; break;

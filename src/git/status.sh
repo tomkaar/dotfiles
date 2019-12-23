@@ -1,11 +1,8 @@
-#!/usr/bin/env bash
-set -e
-
 DIR="$1"
 source $DIR/src/utils.sh
 
 info "⚙️  ${TEXT_BOLD}Git status${TEXT_NORMAL}" Y
-echo -e "This will check if all files can be located\nand if the symlinks are connected"
+echo "This will check if all files can be located\nand if the symlinks are connected"
 
 IGNOREGLOBAL_SRC="${DIR}/dotfiles/git/.gitignore_global"
 IGNOREGLOBAL_DEST="${HOME}/.gitignore_global"

@@ -1,13 +1,8 @@
-#!/usr/bin/env bash
-set -e
-
 DIR="$1"
 source $DIR/src/utils.sh
-source $DIR/src/bash/utils.sh
-
 
 info "️️⚙️  ${TEXT_BOLD}Bash status${TEXT_NORMAL}" Y
-echo -e "This will check if all files can be located\nand if the symlinks are connected"
+echo "This will check if all files can be located\nand if the symlinks are connected"
 
 RC_SRC="${DIR}/dotfiles/bash/.bashrc"
 RC_DEST="${HOME}/.bashrc"

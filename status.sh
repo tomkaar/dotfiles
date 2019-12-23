@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-set -e
 
 clear
 
@@ -8,7 +6,7 @@ source $DIR/src/utils.sh
 
 info "⚙️  ${TEXT_BOLD}Status checks${TEXT_NORMAL}" Y
 
-CHOICE_bash="${TPUT_BOLD}Bash ${TPUT_NORMAL} .bashrc and .bash_profile"
+CHOICE_zsh="${TPUT_BOLD}zsh ${TPUT_NORMAL} .zshrc"
 CHOICE_brew="${TPUT_BOLD}Brew ${TPUT_NORMAL} install formulas"
 CHOICE_cask="${TPUT_BOLD}Cask ${TPUT_NORMAL} install casks"
 CHOICE_ssh="${TPUT_BOLD}SSH ${TPUT_NORMAL} basic config file setup"
@@ -20,15 +18,15 @@ CHOICE_osx="${TPUT_BOLD}OSX ${TPUT_NORMAL} computer settings"
 CHOICE_backtooptions="Back to options"
 CHOICE_quit="${TPUT_BOLD}${TPUT_RED}Quit${TPUT_NORMAL}"
 
-options=( "$CHOICE_bash" "$CHOICE_brew" "$CHOICE_cask" "$CHOICE_ssh" "$CHOICE_git"  "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "${CHOICE_backtooptions}" "$CHOICE_quit")
+options=( "$CHOICE_zsh" "$CHOICE_brew" "$CHOICE_cask" "$CHOICE_ssh" "$CHOICE_git" "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "${CHOICE_backtooptions}" "$CHOICE_quit")
 COLUMNS=1
 
 PS3=$'\n'"Please enter your choice: "
 select opt in "${options[@]}"
 do  
     case $opt in
-        "$CHOICE_bash")
-            clear; "${DIR}/src/bash/status.sh" $DIR; break;
+        "$CHOICE_zsh")
+            clear; "${DIR}/src/zsh/status.sh" $DIR; break;
         ;;
         "$CHOICE_brew")
             clear; "${DIR}/src/brew/status.sh" $DIR; break;

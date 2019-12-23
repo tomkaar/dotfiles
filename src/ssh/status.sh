@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
-set -e
+
+
 
 DIR="$1"
 source $DIR/src/utils.sh
 
 info "⚙️  ${TEXT_BOLD}SSH status${TEXT_NORMAL}" Y
-echo -e "This will check if all files can be located\nand if the symlinks are connected"
+echo  "This will check if all files can be located\nand if the symlinks are connected"
 
 SSH_SRC="${DIR}/dotfiles/ssh/config"
 SSH_DEST="${HOME}/.ssh/config"

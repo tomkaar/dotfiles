@@ -1,6 +1,3 @@
-#!/usr/bin/env bash
-set -e
-
 # color vaules
 COLOR_BLACK='\033[30m'
 COLOR_RED='\033[31m'
@@ -13,9 +10,9 @@ COLOR_LIGHT_GRAY='\033[37m'
 COLOR_DARK_GRAY='\033[38m'
 COLOR_NORMAL='\033[39m'
 
-TEXT_NORMAL='\e[0m'
-TEXT_BOLD='\e[1m'
-TEXT_DIM='\e[2m'
+TEXT_NORMAL=$(tput sgr0)
+TEXT_BOLD=$(tput bold)
+TEXT_DIM=''
 
 TPUT_NORMAL=$(tput sgr0)
 TPUT_BOLD=$(tput bold)
@@ -42,9 +39,9 @@ textHeader() {
     else local COLOR=$COLOR_NORMAL; fi
 
     # print
-    [ "${SPACE_BETWEEN}" = "both" ] || [ "${SPACE_BETWEEN}" = "above" ] && echo '' || echo -n ''
-    echo -e "${COLOR}${1}${COLOR_NORMAL}"
-    [ "${SPACE_BETWEEN}" = "both" ] || [ "${SPACE_BETWEEN}" = "below" ] && echo '' || echo -n ''
+    [ "${SPACE_BETWEEN}" = "both" ] || [ "${SPACE_BETWEEN}" = "above" ] && echo ''
+    echo "${COLOR}${1}${COLOR_NORMAL}"
+    [ "${SPACE_BETWEEN}" = "both" ] || [ "${SPACE_BETWEEN}" = "below" ] && echo ''
 }
 
 # text defaults 
@@ -53,9 +50,9 @@ err() { textHeader "${1}" "err" "${2}"; }
 warn() { textHeader "${1}" "warn" "${2}"; }
 info() { textHeader "${1}" "info" "${2}"; }
 
-text_space() { echo ''; echo -e ${1}; echo ''; }
-text_space_above() { echo ''; echo -e ${1}; }
-text_space_below() { echo -e ${1}; echo ''; }
+text_space() { echo ''; echo  ${1}; echo ''; }
+text_space_above() { echo ''; echo  ${1}; }
+text_space_below() { echo  ${1}; echo ''; }
 
 
 
@@ -104,7 +101,7 @@ ask() {
     while true; do
 
         # Ask the question (not using "read -p" as it uses stderr not stdout)
-        echo -ne "$1 [$prompt] "
+        echo "$1 [$prompt] "
 
         # Read the answer (use /dev/tty in case stdin is redirected from somewhere else)
         read reply </dev/tty
@@ -161,13 +158,13 @@ createLink() {
 find_file_location() {
     if [ -a "$1" ]; then { success " ✓  ${2} found" A; local STATUS=0; };
     else { err "    ${2} not found" A; local STATUS=1; } fi
-    echo -e "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
+    echo  "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
     return $STATUS
 }
 find_file_location_only_visual() {
     if [ -a "$1" ]; then { success " ✓ ${2} found" A; };
     else { err "   ${2} not found" A; } fi
-    echo -e "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
+    echo  "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
 }
 
 # $1=FILE_TO_CHECK $2=SOURCE
@@ -178,8 +175,8 @@ symlink_location_matches() {
     else
         text_space_above "${COLOR_RED}    Symlink not connected ${COLOR_NORMAL}"
     fi
-    echo -e "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
-    echo -e "Source: ${TEXT_DIM}${2}${TEXT_NORMAL}"
+    echo  "Location: ${TEXT_DIM}${1}${TEXT_NORMAL}"
+    echo  "Source: ${TEXT_DIM}${2}${TEXT_NORMAL}"
 }
 
 
