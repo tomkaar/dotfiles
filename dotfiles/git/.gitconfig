@@ -10,7 +10,7 @@
 	ci = commit
 	co = checkout
 	br = branch
-	glog = log --graph --all ..oneline --decorate
+	glog = log --graph --all --oneline --decorate
 	start = !git init && git commit --allow-empty -m \"Initial commit\"
 [credential]
 	helper = osxkeychain
