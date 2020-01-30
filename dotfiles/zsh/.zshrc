@@ -36,6 +36,43 @@ function __prompt_command() {
     PS1+="${NORMAL} $(__git_ps1 "[%s] ")\$ "
 }
 
+# check if command exists
+command_exists() {
+    if command -v $@ >/dev/null 2>&1; then
+        return 0;
+    fi
+    return 1;
+}
+
+# check if project if using npm or yarn
+function nyan() {
+
+    local NORMAL='\033[39m'
+    local RED='\033[31m'
+    local GREEN='\033[32m'
+    local BLUE='\033[34m'
+
+    if [ -f yarn.lock ]; then
+        echo "${GREEN} ✓  Found a yarn.lock file! This project if probably using Yarn.${NORMAL}"
+
+        if command_exists yarn; then
+            echo "${GREEN} ✓  You have Yarn installed.${NORMAL}"
+        else
+            echo "${RED} ✘  You do not have Yarn installed.${NORMAL}"
+        fi
+    elif [ -f package-lock.json ]; then
+        echo "${GREEN} ✓  Found a package-lock.json file! This project if probably using NPM.${NORMAL}"
+
+        if command_exists npm; then
+            echo "${GREEN} ✓  You have NPM installed.${NORMAL}"
+        else
+            echo "${RED} ✘  You do not have NPM installed.${NORMAL}"
+        fi
+    else
+        echo "${BLUE} ?  Cannot find a yarn.lock or a package.lock${NORMAL}"
+    fi
+}
+
 # Git prompt
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -51,3 +88,4 @@ PS2="> "
 #aliases
 alias typora='open -a typora'
 alias ll='ls -lia'
+alias nyan='nyan'
