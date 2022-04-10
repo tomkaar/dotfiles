@@ -19,7 +19,7 @@ CHOICE_osx="${TPUT_BOLD}OSX ${TPUT_NORMAL} computer settings"
 CHOICE_backtooptions="Back to options"
 CHOICE_quit="${TPUT_BOLD}${TPUT_RED}Quit${TPUT_NORMAL}"
 
-options=( "$CHOICE_zsh" "$CHOICE_brew" "$CHOICE_cask" "$CHOICE_ssh" "$CHOICE_git" "$CHOICE_npm" "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "${CHOICE_backtooptions}" "$CHOICE_quit")
+options=( "$CHOICE_zsh" "$CHOICE_brew" "$CHOICE_ssh" "$CHOICE_git" "$CHOICE_npm" "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "${CHOICE_backtooptions}" "$CHOICE_quit")
 COLUMNS=1
 
 PS3=$'\n'"Please enter your choice: "
@@ -31,9 +31,6 @@ do
         ;;
         "$CHOICE_brew")
             clear; "${DIR}/src/brew/status.sh" $DIR; break;
-        ;;
-        "$CHOICE_cask")
-            clear; "${DIR}/src/cask/status.sh" $DIR; break;
         ;;
         "$CHOICE_git")
             clear; "${DIR}/src/git/status.sh" $DIR; break;

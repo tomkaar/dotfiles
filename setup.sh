@@ -8,7 +8,6 @@ info "🛠  ${TEXT_BOLD}Setup!${TEXT_NORMAL}" Y
 
 CHOICE_CHOICE_zsh="${TPUT_BOLD}zsh ${TPUT_NORMAL} .zshrc"
 CHOICE_brew="${TPUT_BOLD}Brew ${TPUT_NORMAL} install formulas"
-CHOICE_cask="${TPUT_BOLD}Cask ${TPUT_NORMAL} install casks"
 CHOICE_ssh="${TPUT_BOLD}SSH ${TPUT_NORMAL} basic config file setup"
 CHOICE_git="${TPUT_BOLD}Git ${TPUT_NORMAL} .gitconfig and .gitignore_global"
 CHOICE_npm="${TPUT_BOLD}NPM ${TPUT_NORMAL} Install global packages"
@@ -20,7 +19,7 @@ CHOICE_backtooptions="Back to options"
 CHOICE_all="${TPUT_BOLD}${TPUT_YELLOW}Everything ${TPUT_NORMAL} "
 CHOICE_quit="${TPUT_BOLD}${TPUT_RED}Quit ${TPUT_NORMAL} "
 
-options=( "$CHOICE_CHOICE_zsh" "$CHOICE_brew" "$CHOICE_cask" "$CHOICE_ssh" "$CHOICE_git" "$CHOICE_npm" "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "${CHOICE_backtooptions}" "$CHOICE_quit")
+options=( "$CHOICE_CHOICE_zsh" "$CHOICE_brew" "$CHOICE_ssh" "$CHOICE_git" "$CHOICE_npm" "$CHOICE_vscode" "$CHOICE_iterm2" "$CHOICE_osx" "${CHOICE_backtooptions}" "$CHOICE_quit")
 COLUMNS=1
 
 PS3=$'\n'"Please enter your choice: "
@@ -32,9 +31,6 @@ do
         ;;
         "$CHOICE_brew")
             clear; "${DIR}/src/brew/setup.sh" $DIR; break;
-        ;;
-        "$CHOICE_cask")
-            clear; "${DIR}/src/cask/setup.sh" $DIR; break;
         ;;
         "$CHOICE_git")
             clear; "${DIR}/src/git/setup.sh" $DIR; break;
