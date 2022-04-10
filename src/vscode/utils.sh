@@ -16,21 +16,28 @@ vscode_install_extensions() {
     VISUAL_STUDIO_CODE_INSTALLED_EXTENSIONS="$(code --list-extensions)"
     IFS=' ' read -a array <<< $VISUAL_STUDIO_CODE_EXTENSIONS; 
 
-    text_space_above "Extensions"
+    echo ""
 
-    for extension in "${array[@]}"
-    do   
-        if ! [[ "$VISUAL_STUDIO_CODE_INSTALLED_EXTENSIONS" == *"${extension}"* ]]; then
-            warn "${COLOR_YELLOW}    $(vscode_extension_get_name $extension)${COLOR_NORMAL} by $(vscode_extension_get_author $extension) is not installed" A
-            if ask "Do you want to install ${COLOR_YELLOW}$(vscode_extension_get_name $extension)${COLOR_NORMAL} now?" Y; then
-                info "Installing ${extension}"
-                code --install-extension ${extension}
-            fi  
-            echo ''
-        else
+    selectedExtensions=()
+
+    for extension in "${array[@]}"; do   
+        if [[ "$VISUAL_STUDIO_CODE_INSTALLED_EXTENSIONS" == *"${extension}"* ]]; then
             echo  "${COLOR_GREEN} ✓  $(vscode_extension_get_name $extension)${COLOR_NORMAL} by $(vscode_extension_get_author $extension) is installed"
+        else
+            if ask "Do you want to install ${COLOR_YELLOW}$(vscode_extension_get_name $extension)${COLOR_NORMAL} now?" Y; then
+                selectedExtensions+=("${extension}")
+            fi
         fi
     done
+
+    echo ""
+
+    for extension in "${selectedExtensions[@]}"; do
+        info "Installing ${extension}"
+        code --install-extension ${extension}
+    done
+
+    echo ""
 }
 
 
@@ -48,7 +55,7 @@ vscode_extension_check() {
     fi
 }
 
-vscode_installed_extensions_list(){
+vscode_installed_extensions_list() {
     local VISUAL_STUDIO_CODE_INSTALLED_EXTENSIONS="$(code --list-extensions)"
     IFS=' ' read -a array <<< $VISUAL_STUDIO_CODE_EXTENSIONS;
 
