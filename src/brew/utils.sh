@@ -4,27 +4,29 @@ source $ROOT_DIR/source.sh
 
 brew_install_formulas() {
 
-    text_space_above "Formulas"
+    echo ""
+
+    selectedFormulas=()
 
     IFS=' ' read -a array <<< $BREW_FORMULAS;
     for package in "${array[@]}"; do
         if brew ls --versions $package > /dev/null; then
             success "${package} is installed"
         else
-            echo ''
-            # The package is not installed
-            info "${package} is not installed"
             if ask "Do you want to install ${package} now?" Y; then
-                info "Installing ${package}"
-                brew install ${package}
-            else 
-                echo "Skipping installation: ${package}"
+                selectedFormulas+=("${package}")
             fi
-            echo ''
         fi
     done
 
-    echo ''
+    echo ""
+
+    for package in "${selectedFormulas[@]}"; do
+        info "Installing ${package}"
+        brew install ${package}
+    done
+
+    echo ""
 }
 
 
