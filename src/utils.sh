@@ -101,7 +101,7 @@ ask() {
     while true; do
 
         # Ask the question (not using "read -p" as it uses stderr not stdout)
-        echo "$1 [$prompt] "
+        printf "$1 [$prompt]: "
 
         # Read the answer (use /dev/tty in case stdin is redirected from somewhere else)
         read reply </dev/tty
