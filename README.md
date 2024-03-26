@@ -2,12 +2,19 @@
 
 My dotfiles, installation and status check 🤓 🤖
 
-> Running iTerm2 with zsh
+- Install brew: [see](https://brew.sh/)
+- Install brew casks and formulas: [see]("#brew")
+- Install oh-my-zsh: [see](https://ohmyz.sh/#install)
+- Create `.zshrc` in root, copy and update settings
+- Create `.ssh/config` in root, copy and update settings
+- Create `.gitconfig`, `.gitconfig_private`, `.gitconfig_company` and `.gitignore_global` in root, copy and update settings
+- Install NVM: [see](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 
-## Start
+## Suggestions
 
-`clone` repo to home-directory and run `./start.sh` from your terminal.
+## Brew
 
-## **Edit source**
-
-Update default formulas, casks and extensions: `./source.sh`
+```zsh
+brew install iterm2 bash bash-completion diff-so-fancy docker git pnpm
+brew install google-chrome iterm2 nightfall obsidian postman spotify visual-studio-code
+```

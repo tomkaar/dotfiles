@@ -1,0 +1,26 @@
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = ~/.gitignore_global
+  diff = diff-so-fancy | less --tabs=4 -RFX
+  editor = nano -w
+
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+
+[credential]
+	helper = osxkeychain
+
+[push]
+	default = simple
+	followTags = true
+
+# include config depending on directory
+[includeIf "gitdir:~/git/company/"]
+  path = .gitconfig_company
+
+[includeIf "gitdir:~/git/private/"]
+  path = .gitconfig_private
